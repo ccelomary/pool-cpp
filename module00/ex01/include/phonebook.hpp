@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mel-omar <mel-omar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:54:10 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/02 18:49:51 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/06/02 22:51:52 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ class Phonebook
         void    add_contact(const Contact &contact);
         void    search_contact(void);
         void    print_contacts(void);
+        int     get_total(void);
+        void    set_total(const int total);
 };
 
 #endif

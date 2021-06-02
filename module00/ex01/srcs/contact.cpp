@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mel-omar <mel-omar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:53:29 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/02 15:56:49 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/06/02 22:46:01 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,11 @@ void    Contact::set_first(const std::string first)
 void    Contact::set_last(const std::string last)
 {
     last_name = last;
+}
+
+void    Contact::set_nickname(const std::string nickname)
+{
+    this->nickname = nickname;
 }
 
 void    Contact::set_login(const std::string login)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mel-omar <mel-omar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 13:29:47 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/02 20:28:49 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/06/02 23:23:22 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,28 @@ std::string     fill_field(const char *question)
     std::string     field;
 
     std::cout << question << ": ";
-    std::cin >> field;
+    std::getline(std::cin, field);
     return (field);
 }
 
-int     main(int argc, char **argv)
+void    menu(void)
+{
+    std::cout << "USAGE" << "\n";
+    std::cout << "EXIT" << ": to exit the program\n";
+    std::cout << "SEARCH" << ": search for contact\n";
+    std::cout << "ADD" << ": add contact\n";
+}
+
+int     main(void)
 {
     Phonebook   phone;
     std::string command;
-    std::string field;
 
+    menu();
     while (1)
     {
-        std::cin >> command;
+        std::cout << ">> ";
+        std::getline(std::cin, command);
         if (command == "EXIT")
             break ;
         else if (command == "ADD")
@@ -46,8 +55,14 @@ int     main(int argc, char **argv)
             con.set_favorite_meal(fill_field("favorite meal"));
             con.set_underwear_color(fill_field("underwear color"));
             con.set_darkest_secret(fill_field("darkest secret"));
+            con.set_index(phone.get_total() + 1);
             phone.add_contact(con);
         }
+        else if (command == "SEARCH")
+            phone.search_contact();
+        else
+            std::cout << "Unkown command\n";
+        
     }
     return (0);
 }

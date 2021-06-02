@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mel-omar <mel-omar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:56:19 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/02 18:57:53 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/06/02 23:20:34 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void    Phonebook::add_contact(const Contact &contact)
 
 void    Phonebook::print_contacts(void)
 {
-    unsigned int    iter;
+    int    iter;
 
     iter = 0;
     contacts[0].display_contact(1);
@@ -50,8 +50,19 @@ void    Phonebook::search_contact(void)
     print_contacts();
     std::cout << "Index>> ";
     std::cin >> index;
+    std::cin.ignore(INT64_MAX, '\n');
     if (index <= total && index > 0)
         contacts[index - 1].full_print();
     else
         std::cout << "Index not found\n";
+}
+
+void    Phonebook::set_total(const int total)
+{
+    this->total = total;
+}
+
+int     Phonebook::get_total(void)
+{
+    return (this->total);
 }
