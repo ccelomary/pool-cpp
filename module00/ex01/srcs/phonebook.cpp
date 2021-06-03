@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-omar <mel-omar@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:56:19 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/02 23:20:34 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/06/03 16:46:18 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,41 @@ void    Phonebook::print_contacts(void)
         contacts[iter].display_contact(0);
 }
 
+int     Phonebook::is_digits(const std::string &str)
+{
+    size_t  iter;
+
+    iter = 0;
+    while (iter < str.length())
+    {
+        if (str[iter] > '9' || str[iter] < '0')
+            return (0);
+        iter++;
+    }
+    if (!iter)
+        return (0);
+    return (1);
+}
 void    Phonebook::search_contact(void)
 {
-    int     index;
+    int             index;
+    std::string     input;
 
-    print_contacts();
-    std::cout << "Index>> ";
-    std::cin >> index;
-    std::cin.ignore(INT64_MAX, '\n');
-    if (index <= total && index > 0)
-        contacts[index - 1].full_print();
+    if (this->get_total() > 0)
+    {
+        print_contacts();
+        std::cout << "Index>> ";
+        std::getline(std::cin, input);
+        index = 0;
+        if (this->is_digits(input))
+            index = stoi(input);
+        if (index <= total && index > 0)
+            contacts[index - 1].full_print();
+        else
+            std::cout << "Index not found\n";
+    }
     else
-        std::cout << "Index not found\n";
+        std::cout << "NO CONTACT FOUND, you must use command 'ADD' to add one\n";
 }
 
 void    Phonebook::set_total(const int total)
