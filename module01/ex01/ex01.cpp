@@ -1,0 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ex01.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mel-omar <mel-omar@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/03 00:08:11 by mel-omar          #+#    #+#             */
+/*   Updated: 2021/06/03 00:12:27 by mel-omar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <iostream>
+#include <string>
+
+void	memoryLeak(void)
+{
+	std::string		*panther;
+
+	panther = new std::string("String panther");
+	std::cout << panther << std::endl;
+	delete panther;	
+}
+
+int		main(void)
+{
+	memoryLeak();
+	return (0);
+}
