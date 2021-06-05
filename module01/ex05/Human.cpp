@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Human.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/03 23:32:45 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/04 11:48:56 by mel-omar         ###   ########.fr       */
+/*   Created: 2021/06/04 12:14:41 by mel-omar          #+#    #+#             */
+/*   Updated: 2021/06/04 12:49:09 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include  "ZombieHorde.hpp"
+#include "Human.hpp"
 
-int		main(void)
+Human::Human()
 {
-	ZombieHorde		*horde;
 
-	horde = new ZombieHorde(5);
-	horde->announce();
-	delete horde;
-	return (0);
+}
+
+Human::~Human()
+{
+
+}
+
+std::string     Human::identify(void) const
+{
+    return (brain.identify());
+}
+
+const Brain &Human::getBrain(void) const
+{
+    return (this->brain);
 }

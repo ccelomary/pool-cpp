@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/03 23:32:45 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/04 11:48:56 by mel-omar         ###   ########.fr       */
+/*   Created: 2021/06/04 12:14:34 by mel-omar          #+#    #+#             */
+/*   Updated: 2021/06/04 12:48:09 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include  "ZombieHorde.hpp"
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
+#include <sstream>
+#include <string>
 
-int		main(void)
+class Brain
 {
-	ZombieHorde		*horde;
-
-	horde = new ZombieHorde(5);
-	horde->announce();
-	delete horde;
-	return (0);
-}
+    public:
+        Brain();
+        ~Brain();
+        std::string     identify(void) const;
+};
+#endif

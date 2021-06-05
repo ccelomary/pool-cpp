@@ -5,19 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/03 23:32:45 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/04 11:48:56 by mel-omar         ###   ########.fr       */
+/*   Created: 2021/06/04 12:38:09 by mel-omar          #+#    #+#             */
+/*   Updated: 2021/06/04 12:54:11 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include  "ZombieHorde.hpp"
+#include "Human.hpp"
+#include <iostream>
 
-int		main(void)
+int     main(void)
 {
-	ZombieHorde		*horde;
+    Human       bob;
 
-	horde = new ZombieHorde(5);
-	horde->announce();
-	delete horde;
-	return (0);
+    std::cout << bob.identify() << std::endl;
+    std::cout << bob.getBrain().identify() << std::endl;
+    return (0);
 }

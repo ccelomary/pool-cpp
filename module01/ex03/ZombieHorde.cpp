@@ -3,21 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ZombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-omar <mel-omar@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 23:29:57 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/03 23:53:38 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/06/04 11:45:05 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ZombieHorde.hpp"
 
-std::string ZombieHorde::names[5] = {"oir", "lebaron", "spider", " smokey", "cuddles"};
+std::string ZombieHorde::names[8] = {"oir", "lebaron", "spider", "smokey", "cuddles", "Ash Williams", "Ed", "Evil Ash"};
 
 ZombieHorde::ZombieHorde(const int number_of_zombies)
 {
+	int		iter;
+
 	this->N = number_of_zombies;
 	this->zombies = new Zombie[N];
+	
+	iter = 0;
+	while (iter < N)
+	{
+		this->zombies[iter].set_name(ZombieHorde::names[random_index()]);
+		this->zombies[iter].set_type("Under world");
+		iter++;
+	}
 }
 
 ZombieHorde::~ZombieHorde()
@@ -39,6 +49,10 @@ void	ZombieHorde::announce(void)
 
 int		ZombieHorde::random_index(void)
 {
-	srand(time(NULL));
-	return ((rand() % 5));
+	struct timeval	timer;
+
+	gettimeofday(&timer, NULL);
+	srand((unsigned int)(timer.tv_usec));
+	usleep(103);
+	return ((rand() % 8));
 }
