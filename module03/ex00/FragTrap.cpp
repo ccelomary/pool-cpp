@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mel-omar <mel-omar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/05 16:12:33 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/05 16:40:43 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/06/05 23:38:08 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,17 @@ void    FragTrap::rangedAttack(const std::string &target)
 
 }
 
-void    FragTrap::meleeArrack(const std::string &target)
+void    FragTrap::meleeAttack(const std::string &target)
 {
     
 }
 
-void    FragTrap::beRepaired(const std::string &target)
+void    FragTrap::beRepaired(unsigned int amount)
+{
+    
+}
+
+void    FragTrap::takeDamage(unsigned int amount)
 {
     
 }
