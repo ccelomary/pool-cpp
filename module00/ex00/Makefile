@@ -6,7 +6,7 @@
 #    By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/31 13:18:32 by mel-omar          #+#    #+#              #
-#    Updated: 2021/06/02 18:55:22 by mel-omar         ###   ########.fr        #
+#    Updated: 2021/06/06 16:08:03 by mel-omar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SRC = megaphone.cpp
 OBJECT = megaphone.o
 
 all: $(NAME)
-$(NAME):
+$(NAME): $(SRC)
 	@clang++ -Wall -Wextra -Werror $(SRC) -o $(NAME)
 clean:
 	@rm -f $(OBJECT)

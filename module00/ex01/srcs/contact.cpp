@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-omar <mel-omar@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:53:29 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/02 22:46:01 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/06/06 16:19:33 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,9 +160,9 @@ void    Contact::set_darkest_secret(const std::string darkest)
 void    Contact::pretty_print_field(const std::string field)
 {
     if (field.length() < 10)
-        std::cout << std::setw(10) << std::left << field.substr(0, 10);
+        std::cout << std::setw(10) << std::right << field.substr(0, 10);
     else
-        std::cout << std::setw(9) << std::left << field.substr(0, 9) << ".";
+        std::cout << std::setw(9) << std::right << field.substr(0, 9) << ".";
         
 }
 
@@ -190,7 +190,7 @@ void    Contact::display_contact(int header)
     std::cout << "+----------";
     std::cout << "-----------" << "-----------" <<  "-----------+\n";
     std::cout << "|";
-    std::cout << std::setw(10) << this->index << "|";
+    std::cout << std::setw(10) << std::right << this->index << "|";
     this->pretty_print_field(get_first());
     std::cout << "|";
     this->pretty_print_field(get_last());

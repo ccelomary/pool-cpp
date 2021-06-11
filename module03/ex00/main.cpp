@@ -6,7 +6,16 @@
 /*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/05 16:12:38 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/05 16:12:39 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/06/11 20:07:13 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
+#include "FragTrap.hpp"
+
+int     main(void)
+{
+    FragTrap frag("Zeros");
+    frag.takeDamage(100);
+    return (0);
+}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ZombieEvent.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-omar <mel-omar@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 18:02:01 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/03 23:17:53 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/06/06 20:45:34 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ class ZombieEvent
     public:
         ZombieEvent(void);
         ~ZombieEvent();
-        Zombie  *newZombie(const std::string &name);
+        Zombie  *newZombie(std::string name);
         void    setZombieType(const std::string &type);
-        Zombie  *randomChump(void);
+        void    randomChump(void);
 };
 
 

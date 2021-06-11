@@ -3,26 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-omar <mel-omar@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 18:53:41 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/03 23:23:33 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/06/06 20:47:57 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ZombieEvent.hpp"
 
-int     main(void)
+int main(void)
 {
-    ZombieEvent     event;
-    Zombie          *zomb;
-    Zombie          *rand_zomb;
+    ZombieEvent event;
+    Zombie *zomb;
+
     event.setZombieType("Mytype");
     zomb = event.newZombie("ZombieLand");
-    rand_zomb = event.randomChump();
     zomb->announce();
-    rand_zomb->announce();
+    event.randomChump();
     delete zomb;
-    delete rand_zomb;
-   return (0);
+    return (0);
 }

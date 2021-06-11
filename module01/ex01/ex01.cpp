@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ex01.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-omar <mel-omar@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 00:08:11 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/03 00:12:27 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/06/06 20:38:01 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	memoryLeak(void)
 	delete panther;	
 }
 
-int		main(void)
-{
-	memoryLeak();
-	return (0);
-}
+// int		main(void)
+// {
+// 	memoryLeak();
+// 	return (0);
+// }

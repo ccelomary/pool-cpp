@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mel-omar <mel-omar@student.1337.ma>        +#+  +:+       +#+         #
+#    By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/02 23:15:01 by mel-omar          #+#    #+#              #
-#    Updated: 2021/06/02 23:24:15 by mel-omar         ###   ########.fr        #
+#    Updated: 2021/06/06 16:11:27 by mel-omar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SRCS = srcs/contact.cpp srcs/main.cpp srcs/phonebook.cpp
 OBJECTS = srcs/contact.o srcs/main.o srcs/phonebook.o
 FLAGS = -Wall -Wextra -Werror
 all:$(NAME)
-$(NAME):
+$(NAME): $(SRCS)
 	@clang++ $(FLAGS) $(SRCS) -o $(NAME)
 clean:
 	@rm -f $(OBJECTS)
