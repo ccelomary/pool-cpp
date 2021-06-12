@@ -6,7 +6,7 @@
 /*   By: elomary <elomary@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 16:46:21 by elomary           #+#    #+#             */
-/*   Updated: 2021/06/13 00:32:20 by elomary          ###   ########.fr       */
+/*   Updated: 2021/06/13 00:19:03 by elomary          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 
-class NinjaTrap : public ClapTrap
+class NinjaTrap : virtual public ClapTrap
 {
     public:
         NinjaTrap(void);
