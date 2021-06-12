@@ -6,16 +6,18 @@
 /*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/05 16:12:38 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/12 15:30:49 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/06/12 17:07:47 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
+#include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
 int     main(void)
 {
-    std::cout << "===== START =====\n";
+    /* FragTrap*/
+    std::cout << "============ FragTrap ============\n";
     FragTrap frag("Zeros");
     frag.takeDamage(100);
     frag.beRepaired(20);
@@ -24,6 +26,16 @@ int     main(void)
     frag.vaulthunter_dot_exe("socrates");
     frag.vaulthunter_dot_exe("bonacis");
     frag.vaulthunter_dot_exe("faster");
-    std::cout << "====== END ======\n";
+    /* SCAVTRAP*/
+    std::cout << "=========== ScavTrap ============\n";
+    ScavTrap scav("scavT");
+    scav.takeDamage(100);
+    scav.beRepaired(20);
+    scav.rangedAttack("scavN");
+    scav.meleeAttack("scavN");
+    scav.challengeNewcomer();
+    scav.challengeNewcomer();
+    scav.challengeNewcomer();
+    std::cout << "======== THE END =============\n";
     return (0);
 }
