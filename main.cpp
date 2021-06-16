@@ -1,11 +1,35 @@
 #include <iostream>
-class Test
+
+
+class A
 {
     public:
-        
-}
-int main()
-{
+        A(void)
+        {
+            std::cout << "hello everyone\n";
+        }
+        ~A()
+        {
+            std::cout << "Parent\n";
+        }
+};
 
-    return (0);
+class B : public A
+{
+    public:
+        B()
+        {
+            std::cout << "hello from child\n";
+        }
+         ~B()
+        {
+            std::cout << "Child\n";
+        }
+};
+
+
+int     main(void)
+{
+     A *b = new B;
+     delete b;
 }
