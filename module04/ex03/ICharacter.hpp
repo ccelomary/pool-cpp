@@ -6,16 +6,19 @@
 /*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 12:37:13 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/18 15:13:12 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/06/18 19:43:38 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef  ICAHRACTER
+#ifndef  ICHARACTER
 # define ICHARACTER
 #include <string>
 #include "AMateria.hpp"
+
 class ICharacter
 {
+    protected:
+        std::string _name;
     public:
         virtual ~ICharacter() {}
         virtual std::string const & getName() const = 0;

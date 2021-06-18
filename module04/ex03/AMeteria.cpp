@@ -6,7 +6,7 @@
 /*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 12:36:50 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/18 13:09:10 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/06/18 19:59:10 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@ AMateria::AMateria(void)
     _xp = 0;
 }
 
+AMateria::AMateria(const std::string &type)
+{
+    _type = type;
+    _xp = 0;
+}
+
 AMateria::AMateria(const AMateria &materia)
 {
     *this = materia;
@@ -26,7 +32,8 @@ AMateria::AMateria(const AMateria &materia)
 AMateria & AMateria::operator = (const AMateria & materia)
 {
     _type = materia._type;
-    _xp = materia._xp;   
+    _xp = materia._xp;
+    return (*this);
 }
 
 AMateria::~AMateria(void)
@@ -44,8 +51,9 @@ unsigned int AMateria::getXP(void) const
     return (_xp);
 }
 
-void       AMateria::use(ICharacter & target)
+void       AMateria::use(ICharacter &target)
 {
+    (void)target;
     _xp += 10;
 }
 
