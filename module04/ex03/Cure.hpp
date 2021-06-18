@@ -6,8 +6,24 @@
 /*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 12:37:04 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/18 13:08:33 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/06/18 15:26:05 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include ""
+#ifndef CURE_HPP
+# define CURE_HPP
+
+#include "AMateria.hpp"
+#include <iostream>
+
+class Cure : public AMateria
+{
+    public:
+        Cure(void);
+        Cure(const Cure & cure);
+        Cure & operator = (const Cure & cure);
+        AMateria *clone(void) const;
+        void       use(ICharacter & target);
+        ~Cure(void);
+};
+#endif

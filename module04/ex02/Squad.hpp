@@ -6,7 +6,7 @@
 /*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 13:01:37 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/17 17:13:59 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/06/18 15:47:23 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ class Squad: public ISquad
         int             marines_size;
         void            copy_marines(const Squad &sd);
         int             check_existance (const ISpaceMarine *marine) const;
+        void            delete_marines(void);
 };
 #endif

@@ -6,7 +6,7 @@
 /*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 12:36:46 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/18 13:07:23 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/06/18 15:18:55 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class AMateria
         virtual ~AMateria(void);
         const std::string & getType() const;
         unsigned int getXP() const;
-        virtual AMateria & *clone() const = 0;
+        virtual AMateria *clone() const = 0;
         virtual void use(ICharacter & target);
 };
 

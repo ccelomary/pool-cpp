@@ -6,7 +6,7 @@
 /*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 13:00:13 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/17 17:38:45 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/06/18 16:12:22 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,13 @@ Squad::Squad()
 
 Squad::Squad(const Squad & squad)
 {
+    counter = 0;
+    marines_size = 0;
     *this = squad;
 }
 Squad::~Squad(void)
 {
-    int     iter;
-
-    iter = 0;
-    while (iter < counter)
-    {
-        delete  marines[iter];
-        iter++;
-    }
-    delete [] marines;
+    delete_marines();
 }
 
 ISpaceMarine    *Squad::getUnit(int unit) const
@@ -60,12 +54,27 @@ int     Squad::getCount() const
     return (counter);
 }
 
+void    Squad::delete_marines(void)
+{
+    int     iter;
+
+    iter = 0;
+    while (iter < counter)
+    {
+        delete  marines[iter];
+        iter++;
+    }
+    if (marines_size)
+        delete [] marines;
+    marines = NULL;
+    marines_size = 0;
+    counter = 0;
+}
 Squad & Squad::operator = (const Squad & squad)
 {
   if (this != &squad)
   {
-      this->counter = squad.counter;
-      this->marines = NULL;
+      this->delete_marines();
       this->copy_marines(squad);
   }  
   return (*this);
@@ -90,6 +99,8 @@ int     Squad::push(ISpaceMarine *space_marine)
     ISpaceMarine    **newSpaceMarine;
     int             iter;
 
+    if (check_existance(space_marine))
+        return (counter);
     if (marines_size == counter)
     {
         marines_size += 5;
@@ -103,11 +114,7 @@ int     Squad::push(ISpaceMarine *space_marine)
         delete [] this->marines;
         this->marines = newSpaceMarine;
     }
-    if (!check_existance(space_marine))
-    {
-        this->marines[counter] = space_marine;
-        counter++;
-        return (counter);
-    }
+    this->marines[counter] = space_marine;
+    counter++;
     return (counter);
 }
