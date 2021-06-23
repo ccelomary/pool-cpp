@@ -6,7 +6,7 @@
 /*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 16:36:43 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/16 17:55:12 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/06/20 16:50:18 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,5 @@ SuperMutant::~SuperMutant(void)
 
 void    SuperMutant::takeDamage(int damage)
 {
-    int     new_hit_point;
-
-    if (damage < 0)
-        return ;
-    new_hit_point = _hp + LESS_THREE_DAMAGE - damage;
-    if (new_hit_point < 0)
-        _hp = 0;
-    else
-        _hp = new_hit_point;
+    Enemy::takeDamage(damage - LESS_THREE_DAMAGE);   
 }

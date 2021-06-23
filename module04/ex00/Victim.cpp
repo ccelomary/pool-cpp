@@ -6,7 +6,7 @@
 /*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 11:29:54 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/16 14:41:06 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/06/20 15:59:54 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ Victim::Victim()
 
 Victim::Victim(const Victim &victim)
 {
+    std::cout <<  "Some random victim called " << victim.get_name() << " just appeared!\n";
     *this = victim;
 }
 

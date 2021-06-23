@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RadScorpion.hpp                                    :+:      :+:    :+:   */
+/*   Perko.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/16 17:16:49 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/20 18:42:07 by mel-omar         ###   ########.fr       */
+/*   Created: 2021/06/20 17:43:51 by mel-omar          #+#    #+#             */
+/*   Updated: 2021/06/20 17:45:27 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RADSCORPION_HPP
-#define RADSCORPION_HPP
-#include <iostream>
-#include "Enemy.hpp"
+#ifndef PERKO_HPP
+# define PERKO_HPP
 
-class RadScorpion : public Enemy
+#include "Victim.hpp"
+class Perko : public Victim
 {
+    Perko(void);
     public:
-        RadScorpion(void);
-        RadScorpion(const RadScorpion &super);
-        RadScorpion & operator = (const RadScorpion &super);
-        virtual ~RadScorpion(void);
-        const std::string & getType(void) const;
-        int     getHP(void) const;
+        Perko(const Perko & Perko);
+        Perko & operator = (const Perko & Perko);
+        virtual ~Perko(void);
+        Perko(const std::string &name);
+        void    getPolymorphed(void) const;
 };
+
 #endif

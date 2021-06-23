@@ -6,7 +6,7 @@
 /*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 12:36:53 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/18 17:42:25 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/06/21 15:54:20 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ Character & Character::operator=(const Character &character)
     {
         clear_materias();
         for (int iter = 0; iter < MAX_MATERIAS;
-            matrias[iter] = character.matrias[iter], iter++);
+            matrias[iter] = character.matrias[iter]->clone(), iter++);
     }
     return (*this);
 }

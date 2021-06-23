@@ -1,34 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RadScorpion.cpp                                    :+:      :+:    :+:   */
+/*   Perko.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/16 17:19:24 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/20 16:53:23 by mel-omar         ###   ########.fr       */
+/*   Created: 2021/06/20 17:43:24 by mel-omar          #+#    #+#             */
+/*   Updated: 2021/06/20 17:48:16 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RadScorpion.hpp"
+#include "Perko.hpp"
 
-RadScorpion::RadScorpion(void) : Enemy(80, "RadScorpion")
+Perko::Perko(void) : Victim("")
 {
-    std::cout << "* click click click *\n";
+
 }
 
-RadScorpion::RadScorpion(const RadScorpion & super): Enemy(super)
+Perko::Perko(const std::string &name) : Victim(name)
 {
-    std::cout << "* click click click *\n";   
+    std::cout << "Pirko.\n";   
 }
 
-RadScorpion & RadScorpion::operator=(const RadScorpion &super)
+Perko::Perko(const Perko &perko) : Victim(perko)
 {
-    Enemy::operator=(super);
+    
+}
+
+Perko & Perko::operator=(const Perko &perko)
+{
+    Victim::operator=(perko);
     return (*this);
 }
 
-RadScorpion::~RadScorpion(void)
+Perko::~Perko(void)
 {
-    std::cout << "* SPROTCH *\n";
+    std::cout << "Bluberrrrr...\n";
+}
+
+void Perko::getPolymorphed(void) const
+{
+    std::cout << _name << " has been turned into a pirko!\n";   
 }

@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RadScorpion.hpp                                    :+:      :+:    :+:   */
+/*   amd65.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/16 17:16:49 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/20 18:42:07 by mel-omar         ###   ########.fr       */
+/*   Created: 2021/06/20 18:07:48 by mel-omar          #+#    #+#             */
+/*   Updated: 2021/06/20 18:07:51 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RADSCORPION_HPP
-#define RADSCORPION_HPP
-#include <iostream>
-#include "Enemy.hpp"
+#include "amd65.hpp"
 
-class RadScorpion : public Enemy
+Amd65::Amd65() : AWeapon("Amd 65", 10, 50)
 {
-    public:
-        RadScorpion(void);
-        RadScorpion(const RadScorpion &super);
-        RadScorpion & operator = (const RadScorpion &super);
-        virtual ~RadScorpion(void);
-        const std::string & getType(void) const;
-        int     getHP(void) const;
-};
-#endif
+    
+}
+
+Amd65::Amd65(const Amd65 & amd65): AWeapon(amd65)
+{   
+}
+
+Amd65 & Amd65::operator= (const Amd65 &amd65)
+{
+    AWeapon::operator=(amd65);
+    return (*this);
+}
+
+Amd65::~Amd65()
+{
+    
+}
+
+void    Amd65::attack(void) const
+{
+    std::cout << "* trrrrrrrrrrrr *\n";
+}

@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RadScorpion.hpp                                    :+:      :+:    :+:   */
+/*   enem.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/16 17:16:49 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/20 18:42:07 by mel-omar         ###   ########.fr       */
+/*   Created: 2021/06/20 18:38:37 by mel-omar          #+#    #+#             */
+/*   Updated: 2021/06/20 18:48:21 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RADSCORPION_HPP
-#define RADSCORPION_HPP
+#ifndef ENEM_HPP
+#define ENEM_HPP
 #include <iostream>
 #include "Enemy.hpp"
 
-class RadScorpion : public Enemy
+class Enem : public Enemy
 {
     public:
-        RadScorpion(void);
-        RadScorpion(const RadScorpion &super);
-        RadScorpion & operator = (const RadScorpion &super);
-        virtual ~RadScorpion(void);
+        Enem(void);
+        Enem(const Enem &e);
+        Enem & operator = (const Enem &e);
+        virtual ~Enem(void);
         const std::string & getType(void) const;
         int     getHP(void) const;
 };
-#endif
+#endif 

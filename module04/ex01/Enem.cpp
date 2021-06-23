@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RadScorpion.hpp                                    :+:      :+:    :+:   */
+/*   enem.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/16 17:16:49 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/20 18:42:07 by mel-omar         ###   ########.fr       */
+/*   Created: 2021/06/20 18:38:33 by mel-omar          #+#    #+#             */
+/*   Updated: 2021/06/20 18:45:46 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RADSCORPION_HPP
-#define RADSCORPION_HPP
-#include <iostream>
-#include "Enemy.hpp"
+#include "Enem.hpp"
 
-class RadScorpion : public Enemy
+Enem::Enem(void) : Enemy(90, "Enem")
 {
-    public:
-        RadScorpion(void);
-        RadScorpion(const RadScorpion &super);
-        RadScorpion & operator = (const RadScorpion &super);
-        virtual ~RadScorpion(void);
-        const std::string & getType(void) const;
-        int     getHP(void) const;
-};
-#endif
+    std::cout << "* move move *\n";
+}
+
+Enem::Enem(const Enem & e): Enemy(e)
+{
+    std::cout << "* move move *\n";   
+}
+
+Enem & Enem::operator=(const Enem &e)
+{
+    Enemy::operator=(e);
+    return (*this);
+}
+
+Enem::~Enem(void)
+{
+    std::cout << "* Kought *\n";
+}

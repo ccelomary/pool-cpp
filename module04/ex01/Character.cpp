@@ -6,7 +6,7 @@
 /*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 17:27:20 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/16 19:38:35 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/06/20 17:14:52 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ Character::Character(const Character & character)
 Character & Character::operator = (const Character &character)
 {
     _name = character._name;
+    _weapon = character._weapon;
+    ap = character.ap;
     return (*this);
 }
 
@@ -47,7 +49,7 @@ void    Character::equip(AWeapon *weapon)
 
 void    Character::attack(Enemy *enemy)
 {
-    if (this->ap - _weapon->getAPCost() >= 0)
+    if (this->_weapon && this->ap >= _weapon->getAPCost())
     {
         std::cout << _name << " attacks " << enemy->getType() << " with a " << _weapon->getName() << "\n";
         _weapon->attack();
@@ -71,8 +73,9 @@ int Character::getAP(void) const
 
 void Character::recoverAP(void)
 {
-    if (ADDED_ACTION_POINT + ap <= MAX_ACTION_POINT)
-        ap += ADDED_ACTION_POINT;
+    ap += ADDED_ACTION_POINT;
+    if (ap > MAX_ACTION_POINT)
+        ap = MAX_ACTION_POINT;
 }
 
 const std::string & Character::getName(void) const

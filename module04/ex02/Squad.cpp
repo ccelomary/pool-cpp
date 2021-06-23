@@ -6,7 +6,7 @@
 /*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 13:00:13 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/18 16:12:22 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/06/20 18:58:45 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void    Squad::delete_marines(void)
     marines_size = 0;
     counter = 0;
 }
+
 Squad & Squad::operator = (const Squad & squad)
 {
   if (this != &squad)
@@ -99,7 +100,7 @@ int     Squad::push(ISpaceMarine *space_marine)
     ISpaceMarine    **newSpaceMarine;
     int             iter;
 
-    if (check_existance(space_marine))
+    if (!space_marine || check_existance(space_marine))
         return (counter);
     if (marines_size == counter)
     {

@@ -6,7 +6,7 @@
 /*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/18 12:36:56 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/18 17:41:35 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/06/21 15:53:34 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@
 #define MAX_MATERIAS 4
 class Character : public ICharacter
 {
+    
     Character(void);
-    AMateria             *matrias[4];
-    void                 clear_materias(void);
+    std::string             _name;
+    AMateria                *matrias[MAX_MATERIAS];
+    void                    clear_materias(void);
     public:
         Character(const std::string & name);
         Character(const Character & character);

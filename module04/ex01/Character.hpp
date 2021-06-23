@@ -6,7 +6,7 @@
 /*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 17:27:25 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/16 18:53:26 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/06/20 17:54:03 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class Character
         Character(std::string const &name);
         Character(const Character &character);
         Character & operator=(const Character &character);
-        ~Character(void);
+        virtual ~Character(void);
         void recoverAP(void);
         void    equip(AWeapon *weapon);
         void    attack(Enemy *enemy);
