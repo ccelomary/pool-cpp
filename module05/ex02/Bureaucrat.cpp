@@ -6,7 +6,7 @@
 /*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 12:27:39 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/24 20:50:07 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/06/24 20:50:00 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,19 @@ void    Bureaucrat::signForm(Form & form)
     {
         std::cout << getName() << " cannot sign " 
             << " because " << form.getName() << " doesn't have required grade\n";
+    }
+}
+
+void    Bureaucrat::executeForm(const Form & form)
+{
+    try
+    {
+        std::cout << this->getName() << " executes " << form.getName() << std::endl;
+        form.execute(*this);
+    }
+    catch (const std::exception & e)
+    {
+        std::cout << "Form cannot be execute for this reason: " <<  e.what() << std::endl;
     }
 }
 

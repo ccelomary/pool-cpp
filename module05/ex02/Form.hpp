@@ -6,7 +6,7 @@
 /*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 15:11:15 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/24 20:22:43 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/06/24 20:21:32 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,21 @@ class Form
             public:
                 char *what(void) const throw ();
         };
+        class NotSignedFormException : public std::exception
+        {
+            public:
+                char    *what(void) const throw();
+        };
         Form(const std::string &name, int grade2sign_it, int grade2execute_it);
         Form (const Form & form);
         Form & operator=(const Form & form);
-        ~Form(void);
+        virtual ~Form(void);
         int     getGradeRequired2SignIt(void) const;
         int     getGradeRequired2ExecuteIt(void) const;
         const std::string &getName(void) const;
         bool    checkSigned(void) const;
         void    beSigned(const Bureaucrat &bc) throw (Form::GradeTooLowException);
+        virtual void    execute(const Bureaucrat &bc) const throw (Form::NotSignedFormException, Form::GradeTooLowException);
 };
 
 std::ostream & operator<<(std::ostream & os, const Form & form);

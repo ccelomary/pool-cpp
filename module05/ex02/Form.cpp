@@ -6,7 +6,7 @@
 /*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 15:12:06 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/24 20:21:59 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/06/24 20:21:12 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ char *Form::GradeTooHighException::what(void) const throw()
 char    *Form::GradeTooLowException::what(void) const throw()
 {
     return ((char *)"Grade too low");
+}
+
+char    *Form::NotSignedFormException::what(void) const throw()
+{
+    return ((char *)"Form Not signed");
 }
 
 int     Form::check_return_grade(int grade)  throw(Form::GradeTooHighException, Form::GradeTooLowException)
@@ -77,6 +82,15 @@ void    Form::beSigned(const Bureaucrat &bc) throw (Form::GradeTooLowException)
     if (bc.getGrade() > this->getGradeRequired2SignIt())
         throw Form::GradeTooLowException();
     is_signed = true;   
+}
+
+void  Form::execute(const Bureaucrat & bc) const throw (Form::NotSignedFormException, Form::GradeTooLowException)
+{
+    if (!checkSigned())
+        throw (Form::NotSignedFormException());
+    if (bc.getGrade() > getGradeRequired2ExecuteIt())
+        throw (Form::GradeTooLowException());
+    std::cout <<  bc.getName() <<  " executed form" << std::endl;
 }
 
 std::ostream & operator<< (std::ostream & os, const Form & form)
