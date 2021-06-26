@@ -84,15 +84,6 @@ void    Form::beSigned(const Bureaucrat &bc) throw (Form::GradeTooLowException)
     is_signed = true;   
 }
 
-void  Form::execute(const Bureaucrat & bc) const throw (Form::NotSignedFormException, Form::GradeTooLowException)
-{
-    if (!checkSigned())
-        throw (Form::NotSignedFormException());
-    if (bc.getGrade() > getGradeRequired2ExecuteIt())
-        throw (Form::GradeTooLowException());
-    std::cout <<  bc.getName() <<  " executed form" << std::endl;
-}
-
 std::ostream & operator<< (std::ostream & os, const Form & form)
 {
     os << "the form " << form.getName() << " must have at least  " << form.getGradeRequired2SignIt() << " grades to sign it and " << form.getGradeRequired2ExecuteIt() << " to execute it, it's state now: "

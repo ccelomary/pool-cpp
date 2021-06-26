@@ -49,7 +49,7 @@ class Form
         const std::string &getName(void) const;
         bool    checkSigned(void) const;
         void    beSigned(const Bureaucrat &bc) throw (Form::GradeTooLowException);
-        virtual void    execute(const Bureaucrat &bc) const throw (Form::NotSignedFormException, Form::GradeTooLowException);
+        virtual void    execute(const Bureaucrat &bc) const throw (Form::NotSignedFormException, Form::GradeTooLowException) = 0;
 };
 
 std::ostream & operator<<(std::ostream & os, const Form & form);
