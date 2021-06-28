@@ -18,40 +18,12 @@
 
 int     main(void)
 {
-    // TEST0 NOT SIGNED FORM EXCEPTION
-    try
+
+    //NOT SIGNED FORM
     {
-        Bureaucrat  bc("TEST0", 5);
-        Form form("Test0", 45, 1);
-        form.execute(bc);
-    }
-    catch (std::exception & e)
-    {
-        std::cout << "TEST0: " << e.what() << std::endl;
-    }
-    // TEST1 
-    try
-    {
-        Bureaucrat  bc("TEST1", 5);
-        Form form("Test1", 45, 1);
-        bc.signForm(form);
-        form.execute(bc);
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << "TEST1: " << e.what() << '\n';
-    }
-    // TEST2
-    try
-    {
-        Bureaucrat bc("TEST2", 45);
-        Form form("Test2", 54, 46);
-        bc.signForm(form);
+        Bureaucrat bc("child20", 146);
+        RobotomyRequestForm form("formchild_20");
         bc.executeForm(form);
-    }
-    catch (const std::exception & exception)
-    {
-        std::cout << "TEST2 " << exception.what(); 
     }
     // childs
     // child0 tests
