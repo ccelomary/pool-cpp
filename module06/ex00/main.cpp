@@ -1,7 +1,4 @@
-#include <iostream>
-#include <string>
-#include <iomanip>
-#include <exception>
+#include "Converter.hpp"
 
 int     check_argument(int number_of_argument)
 {
@@ -78,15 +75,6 @@ int     main(int    argc, char *argv[])
     if (check_argument(argc))
         return (1);
     Converter base(argv[1]);
-    std::cout << "float: ";
-    try
-    {
-        std::cout << std::fixed << std::setprecision(1) << static_cast<float>(base)  << "f" << std::endl;
-    }
-    catch(...)
-    {
-        std::cerr <<"impossible" << '\n';
-    }
-    
+    std::cout << base;
     return (0);
 }

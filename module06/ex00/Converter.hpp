@@ -6,7 +6,7 @@
 /*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 19:24:04 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/28 19:43:51 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/06/28 20:06:07 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,26 +22,26 @@ class Converter
     const std::string to_convert;
     Converter();
     public:
-        class ImpossibleCharacterException: std::exception
+        class ImpossibleCharacterException: public std::exception
         {
             public:
-                const char *what(void) const;
+                const char *what(void) const throw();
         };
-        class NonPrintableCharacterException: std::exception
+        class NonPrintableCharacterException: public std::exception
         {
             public:
-                const char *what(void) const;
+                const char *what(void) const throw();
         };
         Converter(const std::string & str);
-        operator float(void);
-        operator double(void);
-        operator int(void);
-        operator char(void);
-        ostream    &printChar(ostream &os);
-        ostream     &printInt(ostream &os);
-        ostream     &printFloat(ostream &os);
-        ostream     &printDouble(ostream &os);
+        operator float() const;
+        operator double() const;
+        operator int() const;
+        operator char() const;
+        std::ostream    &printChar(std::ostream &os) const;
+        std::ostream     &printInt(std::ostream &os) const;
+        std::ostream     &printFloat(std::ostream &os) const;
+        std::ostream     &printDouble(std::ostream &os) const;
 };
 
-ostream     &operator<< (ostream & os, const Converter &converter);
+std::ostream     &operator<< (std::ostream & os, const Converter &converter);
 #endif
