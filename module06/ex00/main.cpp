@@ -1,5 +1,5 @@
 #include "Converter.hpp"
-
+#include <cstdio>
 int     check_argument(int number_of_argument)
 {
     if (number_of_argument < 2)
@@ -69,12 +69,16 @@ void    convert_to_float(const std::string &s)
 }
 
 
-
+std::ostream & func(std::ostream & os)
+{
+    os << "ello\n";
+    return (os);
+}
 int     main(int    argc, char *argv[])
 {
     if (check_argument(argc))
         return (1);
     Converter base(argv[1]);
-    std::cout << base;
+    std::cerr << base;
     return (0);
 }

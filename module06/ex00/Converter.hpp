@@ -6,7 +6,7 @@
 /*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 19:24:04 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/28 20:06:07 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/06/28 21:16:10 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ class Converter
         operator double() const;
         operator int() const;
         operator char() const;
-        std::ostream    &printChar(std::ostream &os) const;
-        std::ostream     &printInt(std::ostream &os) const;
-        std::ostream     &printFloat(std::ostream &os) const;
-        std::ostream     &printDouble(std::ostream &os) const;
+        void    printChar(std::ostream &os) const;
+        void    printInt(std::ostream &os) const;
+        void    printFloat(std::ostream &os) const;
+        void    printDouble(std::ostream &os) const;
 };
 
 std::ostream     &operator<< (std::ostream & os, const Converter &converter);

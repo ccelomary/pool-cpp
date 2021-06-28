@@ -6,7 +6,7 @@
 /*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 19:24:16 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/28 20:06:34 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/06/28 21:21:00 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,18 @@ Converter::operator char() const
 {
     int     c;
 
-    if (to_convert.length() != 1)
-        throw ImpossibleCharacterException();
-    c = static_cast<int>(to_convert[0]);
-    if (c >= '0' && c <= '9')
-        c -= 48;
+    try
+    {
+        c = std::stoi(to_convert);
+    }
+    catch(const std::exception& e)
+    {
+        if (to_convert.length() != 1)
+            throw ImpossibleCharacterException();
+        c = static_cast<int>(to_convert[0]);
+        if (c >= '0' && c <= '9')
+            c -= 48;
+    }
     if (c < 32 || c > 126)
         throw NonPrintableCharacterException();
     return (c);
@@ -56,21 +63,20 @@ const char  *Converter::NonPrintableCharacterException::what(void) const throw()
     return ("Non displayable");
 }
 
-std::ostream    &Converter::printChar(std::ostream &os) const
+void    Converter::printChar(std::ostream &os) const
 {
     os << "char: ";
     try
     {
-        os << static_cast<char>(*this) << "\n";
+        os << static_cast<char>(*this) << std::endl;
     }
     catch (std::exception & e)
     {
-        os << e.what() << "\n";
-    }
-    return (os);   
+        os << e.what() << std::endl;
+    }   
 }
 
-std::ostream    &Converter::printInt(std::ostream &os) const
+void    Converter::printInt(std::ostream &os) const
 {
     os << "int: ";
     try
@@ -80,11 +86,10 @@ std::ostream    &Converter::printInt(std::ostream &os) const
     catch (std::exception & e)
     {
         os << "impossible" << "\n";
-    }
-    return (os);   
+    }   
 }
 
-std::ostream    &Converter::printFloat(std::ostream &os) const
+void    Converter::printFloat(std::ostream &os) const
 {
     os << "float: ";
     try
@@ -94,11 +99,10 @@ std::ostream    &Converter::printFloat(std::ostream &os) const
     catch (std::exception & e)
     {
         os << "impossible" << "\n";
-    }
-    return (os);   
+    }   
 }
 
-std::ostream    &Converter::printDouble(std::ostream & os) const
+void    Converter::printDouble(std::ostream & os) const
 {
     os << "double: ";
     try
@@ -109,14 +113,13 @@ std::ostream    &Converter::printDouble(std::ostream & os) const
     {
         os << "impossible" << "\n";
     }
-    return (os);   
 }
 
 std::ostream     &operator<< (std::ostream & os, const Converter &converter)
 {
-    os << converter.printChar(os);
-    os << converter.printInt(os);
-    os << converter.printFloat(os);
-    os << converter.printDouble(os);
+    converter.printChar(os);
+    converter.printInt(os);
+    converter.printFloat(os);
+    converter.printDouble(os);
     return (os);
 }
