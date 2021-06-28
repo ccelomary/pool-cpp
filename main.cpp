@@ -1,35 +1,33 @@
 #include <iostream>
+#include <string>
+#include <iomanip>
+#include <exception>
 
-
-class A
+class Base
 {
+    std::string str;
+    float var;
     public:
-        A(void)
+        Base(std::string str, float f):str(str), var(f){}
+        operator float()
         {
-            std::cout << "hello everyone\n";
-        }
-        ~A()
-        {
-            std::cout << "Parent\n";
+            return (var);
         }
 };
-
-class B : public A
-{
-    public:
-        B()
-        {
-            std::cout << "hello from child\n";
-        }
-         ~B()
-        {
-            std::cout << "Child\n";
-        }
-};
-
 
 int     main(void)
 {
-     A *b = new B;
-     delete b;
+     Base b("hello", 15.85f);
+     //std::stoi(s);
+     try 
+     {
+         std::cout<< std::stoi("jkhjk") << std::endl;
+     }
+     catch (const std::exception &e)
+     {
+         std::cout << e.what() << std::endl;
+     }
+     float a = static_cast<float>(b);
+     std::cout << std::fixed << std::setprecision(1) << a  << std::endl;
+    //  delete b;
 }

@@ -3,7 +3,6 @@
 #include <iomanip>
 #include <exception>
 
-
 int     check_argument(int number_of_argument)
 {
     if (number_of_argument < 2)
@@ -39,7 +38,7 @@ void    convert_to_double(const std::string &s)
         }
     }
     if (is_possible_conervsion)
-        std::cout << "double: " <<  convert << std::endl;
+        std::cout << "double: "  << std::setprecision(6) << convert  << std::endl;
     else
         std::cout << "double: impossible" << std::endl;
 }
@@ -64,16 +63,30 @@ void    convert_to_float(const std::string &s)
         }
     }
     if (is_possible_conervsion)
-        std::cout << "float: " <<  static_cast<double>(convert) << std::endl;
+    {
+         std::cout << std::setprecision(6);
+        std::cout << "float: " << convert << std::endl;
+    }
     else
         std::cout << "float: impossible" << std::endl;
 }
+
+
+
 int     main(int    argc, char *argv[])
 {
     if (check_argument(argc))
         return (1);
-    std::string s(argv[1]);
-    convert_to_double(s);
-    convert_to_float(s);
+    Converter base(argv[1]);
+    std::cout << "float: ";
+    try
+    {
+        std::cout << std::fixed << std::setprecision(1) << static_cast<float>(base)  << "f" << std::endl;
+    }
+    catch(...)
+    {
+        std::cerr <<"impossible" << '\n';
+    }
+    
     return (0);
 }
