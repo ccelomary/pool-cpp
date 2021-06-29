@@ -6,7 +6,7 @@
 /*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 19:24:04 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/28 21:16:10 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/06/29 14:04:45 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,5 @@ class Converter
 };
 
 std::ostream     &operator<< (std::ostream & os, const Converter &converter);
+int              check_argument(int number_of_argument);
 #endif

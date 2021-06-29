@@ -6,13 +6,13 @@
 #    By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/29 13:45:02 by mel-omar          #+#    #+#              #
-#    Updated: 2021/06/29 13:47:31 by mel-omar         ###   ########.fr        #
+#    Updated: 2021/06/29 14:04:27 by mel-omar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = convert
-SRCS = Converter.cpp main.cpp
-OBJECTS = Converter.o main.o
+SRCS = Converter.cpp main.cpp argumentValidator.cpp
+OBJECTS = Converter.o main.o argumentValidator.o
 
 all: $(NAME)
 
