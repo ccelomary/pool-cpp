@@ -6,7 +6,7 @@
 /*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/28 19:24:16 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/06/28 21:21:00 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/06/29 13:42:57 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,19 @@ Converter::operator double() const
 
 Converter::operator int() const
 {
-    return (std::stoi(to_convert));
+    int c;
+    try
+    {
+        c = std::stoi(to_convert);
+    }
+    catch(const std::exception& e)
+    {
+        if (to_convert.length() == 1)
+            c = static_cast<int>(to_convert[0]);
+        else
+            throw ImpossibleCharacterException();
+    }
+    return (c);
 }
 
 Converter::operator char() const
@@ -66,9 +78,11 @@ const char  *Converter::NonPrintableCharacterException::what(void) const throw()
 void    Converter::printChar(std::ostream &os) const
 {
     os << "char: ";
+    char    c;
     try
     {
-        os << static_cast<char>(*this) << std::endl;
+        c = static_cast<char>(*this);
+        os << "'" << c << "'" << std::endl;
     }
     catch (std::exception & e)
     {
