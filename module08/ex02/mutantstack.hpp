@@ -6,7 +6,7 @@
 /*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/06 11:29:34 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/07/06 12:26:30 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/07/06 13:51:51 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class MutantStack : public std::stack<T>
         reverse_iterator    rend();
         
 };
+
 
 template <typename T>
 MutantStack<T>::MutantStack() : std::stack<T>()

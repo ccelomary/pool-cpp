@@ -6,14 +6,36 @@
 /*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 20:25:36 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/07/01 20:54:37 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/07/02 19:35:58 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "whatever.hpp"
 
+class Awesome {
+
+public:
+
+Awesome( int n ) : _n( n ) {}
+
+bool operator==( Awesome const & rhs ) { return (this->_n == rhs._n); }
+bool operator!=( Awesome const & rhs ) { return (this->_n != rhs._n); }
+bool operator>( Awesome const & rhs )  { return (this->_n > rhs._n); }
+bool operator<( Awesome const & rhs ) const { return ((this)->_n < rhs._n); }
+bool operator>=( Awesome const & rhs ) { return (this->_n >= rhs._n); }
+bool operator<=( Awesome const & rhs ) { return (this->_n <= rhs._n); }
+
+private:
+    int _n;
+};
+
 int     main(void)
 {
+    {
+        const Awesome c(4);
+        const Awesome d(5);
+        (void)(c < d);
+    }
     {
         int a = 15, b = 20;
         double c =  45.55, d = 13.37;
@@ -45,22 +67,4 @@ int     main(void)
         std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
     }
     return (0);
-}
-
-
-template<typename T> void swap(T &a, T &b)
-{
-    T temp = a;
-    a = b;
-    b = temp;
-}
-
-template<typename T> T min(const T & a, const T & b)
-{
-    return ((a < b) ? a : b);
-}
-
-template<typename T>  T max(const T &a, const T &b)
-{
-    return ((a > b) ? a : b);
 }

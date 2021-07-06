@@ -6,7 +6,7 @@
 /*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 18:28:40 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/07/05 19:58:28 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/07/06 15:56:12 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,5 @@ int     main(void)
     }
     else
         std::cout << "NOT FOUND\n";
-    pair<int, int> p(14, 15);
-    std::cout << p->first << p->second << std::endl;
     return (0);
 }

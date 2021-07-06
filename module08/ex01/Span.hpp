@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   span.hpp                                           :+:      :+:    :+:   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-omar <mel-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/05 19:11:37 by mel-omar          #+#    #+#             */
-/*   Updated: 2021/07/05 20:55:58 by mel-omar         ###   ########.fr       */
+/*   Updated: 2021/07/06 14:06:38 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,21 @@ class Span
         Span(const Span & span);
         Span & operator = (const Span & span);
         ~Span(void);
-        void    addNumber(int number);
         int     shortestSpan(void) const;
         int  longestSpan(void) const;
+        template<typename T>
+        void addNumber(typename T::iterator start, typename T::iterator end);
+        void    addNumber(int number);
 };
 
+///add range of numbers using iterators
+template<typename T>
+void Span::addNumber(typename T::iterator start, typename T::iterator end)
+{
+    while (start != end)
+    {
+        addNumber(*start);
+        start++;
+    }
+}
 #endif 
